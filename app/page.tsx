@@ -97,11 +97,12 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="hidden md:flex border-primary/50 text-primary hover:bg-primary/10">
-              Whitepaper
-            </Button>
-            <Button className="bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600 transition-all duration-300">
-              Join the Movement
+            <Button 
+              variant="outline" 
+              className="hidden md:flex border-primary/50 text-primary hover:bg-primary/10"
+              asChild
+            >
+              <Link href="/waitlist">Join Waitlist</Link>
             </Button>
             <button className="md:hidden text-muted-foreground" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X /> : <Menu />}
@@ -155,9 +156,13 @@ export default function LandingPage() {
               >
                 Contact
               </Link>
-              <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 mt-2">
-                Whitepaper
-              </Button>
+              <Link
+                href="/waitlist"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Join Waitlist
+              </Link>
             </div>
           </div>
         )}
@@ -192,16 +197,12 @@ export default function LandingPage() {
                   <Button
                     size="lg"
                     className="bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600 transition-all duration-300 rounded-full"
+                    asChild
                   >
-                    Join the Movement
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-primary/50 text-primary hover:bg-primary/10 rounded-full"
-                  >
-                    Learn More
+                    <Link href="/waitlist">
+                      Join the Movement
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -639,21 +640,6 @@ export default function LandingPage() {
                 </ul>
               </div>
             </div>
-            <div className="mt-12 flex flex-col items-center">
-              <div className="backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] max-w-2xl w-full">
-                <h3 className="text-xl font-bold mb-4 text-white text-center">Download Our Whitepaper</h3>
-                <p className="text-muted-foreground text-center mb-6">
-                  Get detailed insights into our technology, business model, and vision for the future of blockchain in
-                  Africa.
-                </p>
-                <div className="flex justify-center">
-                  <Button className="bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600 transition-all duration-300 rounded-full">
-                    Download Whitepaper
-                    <Download className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -700,259 +686,269 @@ export default function LandingPage() {
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium text-muted-foreground">
                       Subject
-                    </label>
-                    <input
-                      id="subject"
-                      className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Subject"
-                    />
+                      </label>
+                      <input
+                        id="subject"
+                        className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        placeholder="Subject"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium text-muted-foreground">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        className="flex min-h-[120px] w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        placeholder="Your message"
+                      ></textarea>
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600 transition-all duration-300 rounded-full"
+                    >
+                      Send Message
+                      <Send className="ml-2 h-4 w-4" />
+                    </Button>
+                  </form>
+                </div>
+                <div className="backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)]">
+                  <h3 className="text-xl font-bold mb-6 text-white">Contact Information</h3>
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
+                        <Mail className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-white">Email</h4>
+                        <p className="text-muted-foreground">info@nexaverse.com</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
+                        <Phone className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-white">Phone</h4>
+                        <p className="text-muted-foreground">+254 +254 743084940</p>
+                      </div>
+                    </div>
+                    <div className="pt-6 border-t border-white/10">
+                      <h4 className="font-medium mb-4 text-white">Follow Us</h4>
+                      <div className="flex gap-4">
+                        <a
+                          href="https://twitter.com/nexaverse9"  // Replace with your Twitter profile URL
+                          className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/30 transition-colors border border-primary/30"
+                          target="_blank"  // Opens the link in a new tab
+                          rel="noopener noreferrer"  // Recommended for security when using target="_blank"
+                        >
+                          <Twitter className="h-5 w-5 text-primary" />
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/nexa-verse-3b3727357?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BcXzrOCV2Q5m5dh%2BNRbKR8w%3D%3D"  // Replace with your LinkedIn profile URL
+                          className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/30 transition-colors border border-primary/30"
+                          target="_blank"  // Opens the link in a new tab
+                          rel="noopener noreferrer"  // Recommended for security when using target="_blank"
+                        >
+                          <Linkedin className="h-5 w-5 text-primary" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-muted-foreground">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      className="flex min-h-[120px] w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Your message"
-                    ></textarea>
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600 transition-all duration-300 rounded-full"
-                  >
-                    Send Message
-                    <Send className="ml-2 h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section id="faq" className="py-16 md:py-24 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background z-0"></div>
+            <div className="container relative z-10">
+              <div className="flex flex-col items-center text-center mb-12">
+                <div className="inline-flex items-center justify-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4 backdrop-blur-md border border-primary/20">
+                  Questions
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+                  Frequently Asked Questions
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-500 mb-8 rounded-full"></div>
+              </div>
+              <div className="max-w-3xl mx-auto backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-white/10">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border-white/10">
+                    <AccordionTrigger className="text-white hover:text-primary">
+                      How do I earn Nexa Points?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Simply shop at any participating retailer or engage with our services, and you'll automatically earn
+                      digital loyalty points.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-2" className="border-white/10">
+                    <AccordionTrigger className="text-white hover:text-primary">
+                      What is Mary's Foundation Aid?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      It's our blockchain-powered aid system that ensures transparency in fund distribution to
+                      underprivileged communities.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-3" className="border-white/10">
+                    <AccordionTrigger className="text-white hover:text-primary">
+                      How is NexaVerse different?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      We uniquely integrate retail loyalty, crypto adoption, and transparent aid distribution—all built on
+                      secure blockchain technology.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-4" className="border-white/10">
+                    <AccordionTrigger className="text-white hover:text-primary">
+                      How can I become a partner?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      You can reach out to us through our contact form or email us directly at partnerships@nexaverse.com
+                      to discuss partnership opportunities.
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-5" className="border-white/10">
+                    <AccordionTrigger className="text-white hover:text-primary">
+                      Is NexaVerse available outside Kenya?
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      Currently, we're focused on Kenya, but we have plans to expand across Africa in Phase 3 of our
+                      roadmap.
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="py-16 md:py-24 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-90 z-0"></div>
+            <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10 mix-blend-overlay z-0"></div>
+            <div className="container relative z-10">
+              <div className="flex flex-col items-center text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Get Started with NexaVerse</h2>
+                <p className="max-w-2xl text-white/80 mb-8 text-lg">
+                  Be part of Africa's blockchain future. Join NexaVerse today and help us build a more transparent,
+                  inclusive financial ecosystem.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90">
+                  <Link href="/waitlist">
+                      Join the Movement
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
-                </form>
-              </div>
-              <div className="backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)]">
-                <h3 className="text-xl font-bold mb-6 text-white">Contact Information</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
-                      <Mail className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Email</h4>
-                      <p className="text-muted-foreground">info@nexaverse.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
-                      <Phone className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Phone</h4>
-                      <p className="text-muted-foreground">+254 743084940</p>
-                    </div>
-                  </div>
-                  <div className="pt-6 border-t border-white/10">
-                    <h4 className="font-medium mb-4 text-white">Follow Us</h4>
-                    <div className="flex gap-4">
-                      <a
-                        href="#"
-                        className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/30 transition-colors border border-primary/30"
-                      >
-                        <Twitter className="h-5 w-5 text-primary" />
-                      </a>
-                      <a
-                        href="#"
-                        className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/30 transition-colors border border-primary/30"
-                      >
-                        <Linkedin className="h-5 w-5 text-primary" />
-                      </a>
-                    </div>
-                  </div>
+
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full bg-transparent text-white border-white hover:bg-white/10"
+                  >
+                    <Link href="#contact">Contact Sales</Link>
+                  </Button>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section id="faq" className="py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background z-0"></div>
+          </section>
+        </main>
+        <footer className="border-t border-white/10 py-12 md:py-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background z-0"></div>
           <div className="container relative z-10">
-            <div className="flex flex-col items-center text-center mb-12">
-              <div className="inline-flex items-center justify-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4 backdrop-blur-md border border-primary/20">
-                Questions
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-                Frequently Asked Questions
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-500 mb-8 rounded-full"></div>
-            </div>
-            <div className="max-w-3xl mx-auto backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-white/10">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1" className="border-white/10">
-                  <AccordionTrigger className="text-white hover:text-primary">
-                    How do I earn Nexa Points?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    Simply shop at any participating retailer or engage with our services, and you'll automatically earn
-                    digital loyalty points.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2" className="border-white/10">
-                  <AccordionTrigger className="text-white hover:text-primary">
-                    What is Mary's Foundation Aid?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    It's our blockchain-powered aid system that ensures transparency in fund distribution to
-                    underprivileged communities.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3" className="border-white/10">
-                  <AccordionTrigger className="text-white hover:text-primary">
-                    How is NexaVerse different?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    We uniquely integrate retail loyalty, crypto adoption, and transparent aid distribution—all built on
-                    secure blockchain technology.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-4" className="border-white/10">
-                  <AccordionTrigger className="text-white hover:text-primary">
-                    How can I become a partner?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    You can reach out to us through our contact form or email us directly at partnerships@nexaverse.com
-                    to discuss partnership opportunities.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-5" className="border-white/10">
-                  <AccordionTrigger className="text-white hover:text-primary">
-                    Is NexaVerse available outside Kenya?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    Currently, we're focused on Kenya, but we have plans to expand across Africa in Phase 3 of our
-                    roadmap.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-90 z-0"></div>
-          <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10 mix-blend-overlay z-0"></div>
-          <div className="container relative z-10">
-            <div className="flex flex-col items-center text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Get Started with NexaVerse</h2>
-              <p className="max-w-2xl text-white/80 mb-8 text-lg">
-                Be part of Africa's blockchain future. Join NexaVerse today and help us build a more transparent,
-                inclusive financial ecosystem.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90">
-                  Join the Movement
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full bg-transparent text-white border-white hover:bg-white/10"
-                >
-                  Contact Sales
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer className="border-t border-white/10 py-12 md:py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background z-0"></div>
-        <div className="container relative z-10">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <div className="flex items-center gap-2 font-bold text-xl mb-4">
-                <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground">N</span>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+              <div>
+                <div className="flex items-center gap-2 font-bold text-xl mb-4">
+                  <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+                    <span className="text-primary-foreground">N</span>
+                  </div>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
+                    NexaVerse
+                  </span>
                 </div>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
-                  NexaVerse
-                </span>
-              </div>
-              <p className="text-muted-foreground mb-4">Africa's Future in Blockchain Loyalty & Aid</p>
-              <div className="flex gap-4">
+                <p className="text-muted-foreground mb-4">Africa's Future in Blockchain Loyalty & Aid</p>
+                <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://twitter.com/nexaverse9"  // Replace with your Twitter profile URL
                   className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/30 transition-colors border border-primary/30"
+                  target="_blank"  // Opens the link in a new tab
+                  rel="noopener noreferrer"  // Recommended for security when using target="_blank"
                 >
                   <Twitter className="h-4 w-4 text-primary" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/nexa-verse-3b3727357?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BcXzrOCV2Q5m5dh%2BNRbKR8w%3D%3D"  // Replace with your LinkedIn profile URL
                   className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/30 transition-colors border border-primary/30"
+                  target="_blank"  // Opens the link in a new tab
+                  rel="noopener noreferrer"  // Recommended for security when using target="_blank"
                 >
                   <Linkedin className="h-4 w-4 text-primary" />
                 </a>
+              </div>                
               </div>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-white">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#solutions" className="text-muted-foreground hover:text-primary transition-colors">
-                    Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#features" className="text-muted-foreground hover:text-primary transition-colors">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#roadmap" className="text-muted-foreground hover:text-primary transition-colors">
-                    Roadmap
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-white">Resources</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#faq" className="text-muted-foreground hover:text-primary transition-colors">
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-white">Contact</h3>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-primary" />
-                  <span className="text-muted-foreground">info@nexaverse.com</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-primary" />
-                  <span className="text-muted-foreground">+2547 22084940</span>
+              <div>
+                <h3 className="font-bold mb-4 text-white">Quick Links</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#solutions" className="text-muted-foreground hover:text-primary transition-colors">
+                      Solutions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#features" className="text-muted-foreground hover:text-primary transition-colors">
+                      Features
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#roadmap" className="text-muted-foreground hover:text-primary transition-colors">
+                      Roadmap
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold mb-4 text-white">Resources</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#faq" className="text-muted-foreground hover:text-primary transition-colors">
+                      FAQ
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                      Documentation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-bold mb-4 text-white">Contact</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground">info@nexaverse.com</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-primary" />
+                    <span className="text-muted-foreground">+254 743084940</span>
                 </li>
               </ul>
             </div>
@@ -967,4 +963,5 @@ export default function LandingPage() {
     </div>
   )
 }
+
 

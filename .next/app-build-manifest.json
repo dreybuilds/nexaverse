@@ -1,0 +1,51 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-9682978e3e09731c.js",
+      "static/chunks/4bd1b696-647f92f2fb233d0a.js",
+      "static/chunks/517-c49411cd89adef35.js",
+      "static/chunks/main-app-0cd7a1a5db216eba.js",
+      "static/chunks/app/_not-found/page-b786c3dd79ad15a5.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-9682978e3e09731c.js",
+      "static/chunks/4bd1b696-647f92f2fb233d0a.js",
+      "static/chunks/517-c49411cd89adef35.js",
+      "static/chunks/main-app-0cd7a1a5db216eba.js",
+      "static/css/254fa3f697c3f5f4.css",
+      "static/chunks/app/layout-153734582eb76229.js"
+    ],
+    "/waitlist/page": [
+      "static/chunks/webpack-9682978e3e09731c.js",
+      "static/chunks/4bd1b696-647f92f2fb233d0a.js",
+      "static/chunks/517-c49411cd89adef35.js",
+      "static/chunks/main-app-0cd7a1a5db216eba.js",
+      "static/chunks/33-4534245b9898a3a3.js",
+      "static/chunks/app/waitlist/page-a1e07c04cfcd5b43.js"
+    ],
+    "/waitlist/success/loading": [
+      "static/chunks/webpack-9682978e3e09731c.js",
+      "static/chunks/4bd1b696-647f92f2fb233d0a.js",
+      "static/chunks/517-c49411cd89adef35.js",
+      "static/chunks/main-app-0cd7a1a5db216eba.js",
+      "static/chunks/app/waitlist/success/loading-5efe3b18ffb9d93f.js"
+    ],
+    "/waitlist/success/page": [
+      "static/chunks/webpack-9682978e3e09731c.js",
+      "static/chunks/4bd1b696-647f92f2fb233d0a.js",
+      "static/chunks/517-c49411cd89adef35.js",
+      "static/chunks/main-app-0cd7a1a5db216eba.js",
+      "static/chunks/33-4534245b9898a3a3.js",
+      "static/chunks/app/waitlist/success/page-716db0bb3595ca27.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-9682978e3e09731c.js",
+      "static/chunks/4bd1b696-647f92f2fb233d0a.js",
+      "static/chunks/517-c49411cd89adef35.js",
+      "static/chunks/main-app-0cd7a1a5db216eba.js",
+      "static/chunks/33-4534245b9898a3a3.js",
+      "static/chunks/178-68658e21c1006d9d.js",
+      "static/chunks/app/page-777b6cbc7165af14.js"
+    ]
+  }
+}
