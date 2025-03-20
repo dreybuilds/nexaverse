@@ -209,7 +209,7 @@ export default function LandingPage() {
               <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden backdrop-blur-sm bg-gradient-to-br from-black/40 to-primary/5 border border-white/10 p-1">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent animate-pulse"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/nexaverse.jpeg?height=400&width=600"
                   alt="NexaVerse - Africa's Future in Blockchain"
                   fill
                   className="object-cover rounded-2xl"
